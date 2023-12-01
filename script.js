@@ -14,7 +14,8 @@ function addBookToLibrary() {
   let pages = document.querySelector('#pages').value;
   let read = document.querySelector('#read').checked;
   const newBook = new Book(title, author, pages, read);
-  console.log(newBook);
+  myLibrary.push(newBook);
+  console.log(myLibrary);
 }
 
 // New book button
@@ -26,7 +27,7 @@ newBookBtn.addEventListener('click', function () {
 
 document
   .querySelector('#new-book-form')
-  .addEventListener('submit', function () {
+  .addEventListener('submit', function (event) {
     event.preventDefault();
     addBookToLibrary();
   });
