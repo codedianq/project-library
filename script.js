@@ -3,4 +3,11 @@ const myLibrary = [];
 
 function Book() {}
 
-console.log('hello');
+function addBookToLibrary() {}
+
+// New book button
+const newBookBtn = document.querySelector('#new-book-btn');
+newBookBtn.addEventListener('click', function () {
+  const formContainer = document.querySelector('.form-container');
+  formContainer.style.display = 'block';
+});
