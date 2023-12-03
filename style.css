@@ -115,9 +115,6 @@ input[type='submit']:hover {
   align-items: flex-start;
   flex-wrap: wrap;
 
-  background-color: var(--primary-color);
-  border: solid #cfa9ad 1px;
-  border-radius: 4px;
   gap: 20px;
   padding: 10px;
   width: 100%;
@@ -146,4 +143,20 @@ input[type='submit']:hover {
 .remove-button:hover {
   background-color: var(--bg-color);
   color: var(--accent-color);
+}
+
+.toggle-button {
+  background-color: var(--bg-color);
+  border: solid var(--primary-color) 1px;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-top: 5px;
+  color: var(--accent-color);
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.toggle-button:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
 }

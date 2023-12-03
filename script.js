@@ -10,6 +10,10 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.toggleReadStatus = function () {
+  this.read = !this.read;
+};
+
 // Create a function render() to render the book to HTML file
 function render() {
   const libraryEl = document.querySelector('#library-container');
@@ -36,12 +40,21 @@ function render() {
 
     bookCard.classList.add('book-card');
 
+    // remove btn
     const removeButton = document.createElement('button');
     removeButton.textContent = 'REMOVE';
     removeButton.classList.add('remove-button');
     removeButton.setAttribute('data-index', index);
     removeButton.addEventListener('click', removeBook);
     bookCard.appendChild(removeButton);
+
+    // toggle btn for read or not read
+    const toggleButton = document.createElement('button');
+    toggleButton.textContent = 'STATUS';
+    toggleButton.classList.add('toggle-button');
+    toggleButton.setAttribute('data-index', index); // Associate with the book's index
+    toggleButton.addEventListener('click', toggleReadStatus);
+    bookCard.appendChild(toggleButton);
 
     libraryEl.appendChild(bookCard);
   });
@@ -51,6 +64,12 @@ function removeBook(event) {
   const indexToRemove = event.target.getAttribute('data-index');
   myLibrary.splice(indexToRemove, 1);
   render();
+}
+
+function toggleReadStatus(event) {
+  const indexToToggle = event.target.getAttribute('data-index');
+  myLibrary[indexToToggle].toggleReadStatus();
+  render(); // Re-render the library after toggling the read status
 }
 
 function addBookToLibrary() {
