@@ -17,7 +17,7 @@ function render() {
   // Clear the existing content in the library container
   libraryEl.innerHTML = '';
 
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
     const bookCard = document.createElement('div');
     const pTitle = document.createElement('h1');
     const pAuthor = document.createElement('h3');
@@ -36,8 +36,21 @@ function render() {
 
     bookCard.classList.add('book-card');
 
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'REMOVE';
+    removeButton.classList.add('remove-button');
+    removeButton.setAttribute('data-index', index);
+    removeButton.addEventListener('click', removeBook);
+    bookCard.appendChild(removeButton);
+
     libraryEl.appendChild(bookCard);
   });
+}
+
+function removeBook(event) {
+  const indexToRemove = event.target.getAttribute('data-index');
+  myLibrary.splice(indexToRemove, 1);
+  render();
 }
 
 function addBookToLibrary() {

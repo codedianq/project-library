@@ -132,3 +132,18 @@ input[type='submit']:hover {
   border-radius: 4px;
   box-shadow: 4px 4px 3px #aa8c8f;
 }
+
+.remove-button {
+  background-color: var(--accent-color);
+  border: solid var(--primary-color) 1px;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-top: 5px;
+  color: var(--bg-color);
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: var(--bg-color);
+  color: var(--accent-color);
+}
