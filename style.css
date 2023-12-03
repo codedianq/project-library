@@ -58,13 +58,18 @@ form {
   align-items: center;
   gap: 10px;
 
-  width: 250px;
+  width: 30vw;
   padding: 10px;
   border: solid #cfa9ad 1px;
   border-radius: 4px;
 
   background-color: var(--primary-color);
   color: var(--accent-color2);
+}
+
+form div {
+  width: 100%;
+  text-align: center;
 }
 
 label {
@@ -77,6 +82,14 @@ label {
 .checkbox-ctn {
   display: flex;
   flex-direction: column;
+}
+
+input[type='text'],
+input[type='number'] {
+  width: 60%;
+  padding: 5px 10px;
+  border: solid var(--accent-color) 1px;
+  border-radius: 5px;
 }
 
 input[type='submit'] {
@@ -93,4 +106,29 @@ input[type='submit'] {
 input[type='submit']:hover {
   background-color: #3a0212;
   color: var(--primary-color);
+}
+
+/* Style for library */
+#library-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  background-color: var(--primary-color);
+  border: solid #cfa9ad 1px;
+  border-radius: 4px;
+  gap: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.book-card {
+  flex: 0 0 30%;
+  background-color: var(--accent-color2);
+  color: var(--bg-color);
+
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 3px #aa8c8f;
 }

@@ -1,3 +1,5 @@
+// 14:17
+
 // Add function that take user's input and store to array.
 const myLibrary = [];
 
@@ -8,6 +10,36 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+// Create a function render() to render the book to HTML file
+function render() {
+  const libraryEl = document.querySelector('#library-container');
+
+  // Clear the existing content in the library container
+  libraryEl.innerHTML = '';
+
+  myLibrary.forEach((book) => {
+    const bookCard = document.createElement('div');
+    const pTitle = document.createElement('h1');
+    const pAuthor = document.createElement('h3');
+    const pPages = document.createElement('h4');
+    const pRead = document.createElement('p');
+
+    pTitle.textContent = `${book.title}`;
+    pAuthor.textContent = `By: ${book.author}`;
+    pPages.textContent = `Pages: ${book.pages}`;
+    pRead.textContent = `Status: ${book.read ? 'Done' : 'On progress'}`;
+
+    bookCard.appendChild(pTitle);
+    bookCard.appendChild(pAuthor);
+    bookCard.appendChild(pPages);
+    bookCard.appendChild(pRead);
+
+    bookCard.classList.add('book-card');
+
+    libraryEl.appendChild(bookCard);
+  });
+}
+
 function addBookToLibrary() {
   let title = document.querySelector('#title').value;
   let author = document.querySelector('#author').value;
@@ -15,7 +47,7 @@ function addBookToLibrary() {
   let read = document.querySelector('#read').checked;
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
-  console.log(myLibrary);
+  render();
 }
 
 // New book button
