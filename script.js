@@ -40,14 +40,6 @@ function render() {
 
     bookCard.classList.add('book-card');
 
-    // remove btn
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'REMOVE';
-    removeButton.classList.add('remove-button');
-    removeButton.setAttribute('data-index', index);
-    removeButton.addEventListener('click', removeBook);
-    bookCard.appendChild(removeButton);
-
     // toggle btn for read or not read
     const toggleButton = document.createElement('button');
     toggleButton.textContent = 'STATUS';
@@ -55,6 +47,14 @@ function render() {
     toggleButton.setAttribute('data-index', index); // Associate with the book's index
     toggleButton.addEventListener('click', toggleReadStatus);
     bookCard.appendChild(toggleButton);
+
+    // remove btn
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'REMOVE';
+    removeButton.classList.add('remove-button');
+    removeButton.setAttribute('data-index', index);
+    removeButton.addEventListener('click', removeBook);
+    bookCard.appendChild(removeButton);
 
     libraryEl.appendChild(bookCard);
   });
@@ -94,4 +94,6 @@ document
   .addEventListener('submit', function (event) {
     event.preventDefault();
     addBookToLibrary();
+    const formContainer = document.querySelector('.form-container');
+    formContainer.style.display = 'none';
   });

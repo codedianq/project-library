@@ -146,6 +146,7 @@ input[type='submit']:hover {
 }
 
 .toggle-button {
+  display: block;
   background-color: var(--bg-color);
   border: solid var(--primary-color) 1px;
   border-radius: 4px;
@@ -153,7 +154,6 @@ input[type='submit']:hover {
   margin-top: 5px;
   color: var(--accent-color);
   cursor: pointer;
-  margin-left: 5px;
 }
 
 .toggle-button:hover {
